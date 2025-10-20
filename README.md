@@ -38,29 +38,30 @@
 
 ## Структура проекта ##
 
-
-`search_engine/`
-`├── CMakeLists.txt`
-`├── config.json`
-`├── requests.json`
-`├── answers.json`          # генерируется автоматически
-`├── main.cpp`              # точка входа
-`├── include/`
-`│   ├── ConverterJSON.h`
-`│   ├── InvertedIndex.h`
-`│   └── SearchServer.h`
-`├── src/`
-`│   ├── ConverterJSON.cpp`
-`│   ├── InvertedIndex.cpp`
-`│   └── SearchServer.cpp`
-`├── test/`
-`│   └── test_main.cpp`     # модульные тесты
-`└── resources/`
-`   ├── file001.txt`
-`   ├── file002.txt`
-`   ├── file003.txt`
-`   ├── file004.txt`
-`   └── file005.txt`       # документы для поиска`
+```
+search_engine/
+├── CMakeLists.txt
+├── config.json
+├── requests.json
+├── answers.json            # генерируется автоматически
+├── main.cpp                # точка входа
+├── include/
+│   ├── ConverterJSON.h
+│   ├── InvertedIndex.h
+│   └── SearchServer.h
+├── src/
+│   ├── ConverterJSON.cpp
+│   ├── InvertedIndex.cpp
+│   └── SearchServer.cpp
+├── test/
+│   └── test_main.cpp       # модульные тесты
+└── resources/
+   ├── file001.txt
+   ├── file002.txt
+   ├── file003.txt
+   ├── file004.txt
+   └── file005.txt       # документы для поиска
+```
 ---
 
 ## Как собрать и запустить ##
@@ -119,7 +120,7 @@ config.json:
     config.version — версия (должна быть "0.1")  
     config.max_responses — макс. число результатов на запрос (по умолчанию 5)  
     files — список путей к документам (относительно папки сборки)
-     
+```     
 Пример:
 
 {
@@ -196,7 +197,7 @@ answers.json (генерируется):
         }
     }
 }
-
+```
 requestXXX — ID запроса (трёхзначный, с ведущими нулями)  
 Если найден ровно один документ — поля docid и rank указываются напрямую  
 Если найдено несколько — используется массив relevance  
