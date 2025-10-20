@@ -88,10 +88,8 @@ void ConverterJSON::putAnswers(std::vector<std::vector<std::pair<int, float>>> a
     int i = 0;
     for (i = 0; i < answers_size; i++) {
         std::string num = std::to_string(i + 1);
-        if (num.length() == 1) {
-            num += "00";
-        } else if (num.length() == 2) {
-            num += "0";
+        while (num.length() < 3) {
+            num = "0" + num;
         }
         std::string request_id = "request" + num;
 
