@@ -1,0 +1,5 @@
+Programming is the process of creating computer software using programming languages.
+Popular programming languages include Python Java C++ and JavaScript.
+Each language has its own syntax and use cases for different types of projects.
+Learning to code requires practice and understanding of algorithms and data structures.
+Software development involves writing testing and maintaining code for applications.

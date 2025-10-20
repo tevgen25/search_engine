@@ -1,0 +1,5 @@
+Database management systems store and organize data for applications and websites.
+SQL is the standard language for relational database management systems.
+Popular databases include MySQL PostgreSQL Oracle and Microsoft SQL Server.
+Database administrators ensure data security integrity and performance optimization.
+NoSQL databases like MongoDB are used for unstructured data and big data applications.

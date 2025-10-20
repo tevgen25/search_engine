@@ -1,0 +1,5 @@
+Artificial intelligence involves creating machines that can perform tasks requiring human intelligence.
+Machine learning is a subset of AI that uses algorithms to learn from data patterns.
+Deep learning uses neural networks for complex tasks like image and speech recognition.
+Natural language processing enables computers to understand and generate human language.
+AI applications include chatbots recommendation systems and autonomous vehicles.

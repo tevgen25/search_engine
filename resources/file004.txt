@@ -1,0 +1,5 @@
+Web development involves creating websites and web applications for the internet.
+Frontend development uses HTML CSS and JavaScript to build user interfaces.
+Backend development handles server side logic databases and application programming interfaces.
+Full stack developers work on both frontend and backend components of web projects.
+Modern web development often uses frameworks like React Angular and Vue for frontend.
