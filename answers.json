@@ -1,6 +1,6 @@
 {
     "answers": {
-        "request001": {
+        "request100": {
             "relevance": [
                 {
                     "docid": 4,
@@ -17,7 +17,7 @@
             ],
             "result": "true"
         },
-        "request002": {
+        "request200": {
             "relevance": [
                 {
                     "docid": 3,
@@ -30,17 +30,17 @@
             ],
             "result": "true"
         },
-        "request003": {
+        "request300": {
             "docid": 2,
             "rank": 1.0,
             "result": "true"
         },
-        "request004": {
+        "request400": {
             "docid": 1,
             "rank": 1.0,
             "result": "true"
         },
-        "request005": {
+        "request500": {
             "relevance": [
                 {
                     "docid": 0,
@@ -53,7 +53,7 @@
             ],
             "result": "true"
         },
-        "request006": {
+        "request600": {
             "relevance": [
                 {
                     "docid": 3,
@@ -70,7 +70,7 @@
             ],
             "result": "true"
         },
-        "request007": {
+        "request700": {
             "docid": 0,
             "rank": 1.0,
             "result": "true"

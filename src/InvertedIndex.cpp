@@ -5,6 +5,7 @@
 #include <thread>
 #include <mutex>
 #include <algorithm>
+#include <utility>
 
 InvertedIndex::InvertedIndex() {
     this->docs = std::vector<std::string>();
@@ -28,11 +29,11 @@ void InvertedIndex::ProcessDocument(size_t doc_id, const std::string& content) {
 
     std::map<std::string, int>::iterator wc_it;
     for (wc_it = word_count.begin(); wc_it != word_count.end(); wc_it++) {
-        Entry entry;
+        Entry entry{};
         entry.doc_id = doc_id;
         entry.count = wc_it->second;
 
-        std::map<std::string, std::vector<Entry>>::iterator dict_it = freq_dictionary.find(wc_it->first);
+        auto dict_it = freq_dictionary.find(wc_it->first);
         if (dict_it != freq_dictionary.end()) {
             bool found = false;
             std::vector<Entry>::iterator entry_it;
@@ -56,7 +57,7 @@ void InvertedIndex::ProcessDocument(size_t doc_id, const std::string& content) {
 }
 
 void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs) {
-    this->docs = input_docs;
+    this->docs = std::move(input_docs);
     this->freq_dictionary.clear();
 
     std::vector<std::thread> threads;
@@ -66,7 +67,7 @@ void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs) {
         if (this->docs[doc_id].length() > 1000 * 100) {
             continue;
         }
-        threads.push_back(std::thread(&InvertedIndex::ProcessDocument, this, doc_id, this->docs[doc_id]));
+        threads.emplace_back(&InvertedIndex::ProcessDocument, this, doc_id, this->docs[doc_id]);
     }
 
     std::vector<std::thread>::iterator thread_it;
@@ -83,5 +84,5 @@ std::vector<Entry> InvertedIndex::GetWordCount(const std::string& word) {
     if (it != this->freq_dictionary.end()) {
         return it->second;
     }
-    return std::vector<Entry>();
+    return {};
 }

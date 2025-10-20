@@ -122,7 +122,3 @@ TEST(TestCaseSearchServer, TestTop5) {
     std::vector<std::vector<RelativeIndex>> result = srv.search(request);
     ASSERT_EQ(result, expected);
 }
-
-TEST(SampleTest, BasicTest) {
-    EXPECT_EQ(1, 1);
-}

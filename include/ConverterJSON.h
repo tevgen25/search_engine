@@ -7,10 +7,16 @@
 class ConverterJSON {
 public:
     ConverterJSON();
-    std::vector<std::string> GetTextDocuments();
-    int GetResponsesLimit();
-    std::vector<std::string> GetRequests();
-    void putAnswers(std::vector<std::vector<std::pair<int, float>>> answers);
-    void CheckVersion();
-    std::string GetEngineName();
+
+    static std::vector<std::string> GetTextDocuments();
+
+    static int GetResponsesLimit();
+
+    static std::vector<std::string> GetRequests();
+
+    static void putAnswers(std::vector<std::vector<std::pair<int, float>>> answers);
+
+    static void CheckVersion();
+
+    static std::string GetEngineName();
 };

@@ -3,13 +3,13 @@
 #include <iostream>
 #include <sstream>
 
-ConverterJSON::ConverterJSON() {}
+ConverterJSON::ConverterJSON() = default;
 
 std::vector<std::string> ConverterJSON::GetTextDocuments() {
     std::ifstream config_file("../config.json");
     if (!config_file.is_open()) {
         std::cout << "config file is missing!\n";
-        return std::vector<std::string>();
+        return {};
     }
 
     nlohmann::json config;
@@ -18,12 +18,12 @@ std::vector<std::string> ConverterJSON::GetTextDocuments() {
 
     if (config.find("config") == config.end()) {
         std::cout << "config file is empty!\n";
-        return std::vector<std::string>();
+        return {};
     }
 
     if (config.find("files") == config.end()) {
         std::cout << "config file is empty!\n";
-        return std::vector<std::string>();
+        return {};
     }
 
     std::vector<std::string> result;
@@ -66,7 +66,7 @@ std::vector<std::string> ConverterJSON::GetRequests() {
     std::ifstream requests_file("../requests.json");
     if (!requests_file.is_open()) {
         std::cout << "requests.json not found!\n";
-        return std::vector<std::string>();
+        return {};
     }
 
     nlohmann::json requests_json;
@@ -74,7 +74,7 @@ std::vector<std::string> ConverterJSON::GetRequests() {
     requests_file.close();
 
     if (requests_json.find("requests") == requests_json.end()) {
-        return std::vector<std::string>();
+        return {};
     }
 
     return requests_json["requests"].get<std::vector<std::string>>();
@@ -89,9 +89,9 @@ void ConverterJSON::putAnswers(std::vector<std::vector<std::pair<int, float>>> a
     for (i = 0; i < answers_size; i++) {
         std::string num = std::to_string(i + 1);
         if (num.length() == 1) {
-            num = "00" + num;
+            num += "00";
         } else if (num.length() == 2) {
-            num = "0" + num;
+            num += "0";
         }
         std::string request_id = "request" + num;
 

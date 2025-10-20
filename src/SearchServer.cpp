@@ -41,7 +41,7 @@ std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<s
         }
 
         if (unique_words.empty()) {
-            final_results.push_back(std::vector<RelativeIndex>());
+            final_results.emplace_back();
             continue;
         }
 
@@ -67,7 +67,7 @@ std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<s
 
         std::vector<RelativeIndex> rel_list;
         for (rel_it = doc_absolute_relevance.begin(); rel_it != doc_absolute_relevance.end(); rel_it++) {
-            RelativeIndex ri;
+            RelativeIndex ri{};
             ri.doc_id = rel_it->first;
             if (max_absolute_relevance > 0) {
                 ri.rank = static_cast<float>(rel_it->second) / static_cast<float>(max_absolute_relevance);
