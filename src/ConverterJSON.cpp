@@ -132,6 +132,7 @@ void ConverterJSON::CheckVersion() {
         std::string version = config["config"]["version"];
         if (version != "0.1") {
             std::cout << "config.json has incorrect file version!\n";
+            std::exit(1);
         }
     }
 }

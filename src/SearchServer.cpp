@@ -88,7 +88,6 @@ std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<s
         if (rel_list.size() > 5) {
             rel_list.resize(5);
         }
-
         final_results.push_back(rel_list);
     }
 
