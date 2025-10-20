@@ -38,6 +38,7 @@
 
 ## Структура проекта ##
 
+`
 search_engine/
 ├── CMakeLists.txt
 ├── config.json
@@ -59,8 +60,7 @@ search_engine/
     ├── file002.txt
     ├── file003.txt
     ├── file004.txt
-    └── file005.txt       # документы для поиска
-
+    └── file005.txt       # документы для поиска`
 ---
 
 ## Как собрать и запустить ##
