@@ -23,9 +23,10 @@ struct RelativeIndex {
 
 class SearchServer {
 public:
-    SearchServer(InvertedIndex& idx);
+    SearchServer(InvertedIndex& idx, int max_responses);
     std::vector<std::vector<RelativeIndex>> search(const std::vector<std::string>& queries_input);
 
 private:
     InvertedIndex& index;
+    int max_responses_limit;
 };

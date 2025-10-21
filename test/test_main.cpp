@@ -76,7 +76,9 @@ TEST(TestCaseSearchServer, TestSimple) {
     };
     InvertedIndex idx;
     idx.UpdateDocumentBase(docs);
-    SearchServer srv(idx);
+    ConverterJSON converter;
+    int max_responses = converter.GetResponsesLimit();
+    SearchServer srv(idx, max_responses);
     std::vector<std::vector<RelativeIndex>> result = srv.search(request);
     ASSERT_EQ(result, expected);
 }
@@ -118,7 +120,9 @@ TEST(TestCaseSearchServer, TestTop5) {
     };
     InvertedIndex idx;
     idx.UpdateDocumentBase(docs);
-    SearchServer srv(idx);
+    ConverterJSON converter;
+    int max_responses = converter.GetResponsesLimit();
+    SearchServer srv(idx, max_responses);
     std::vector<std::vector<RelativeIndex>> result = srv.search(request);
     ASSERT_EQ(result, expected);
 }

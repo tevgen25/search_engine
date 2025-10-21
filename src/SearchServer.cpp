@@ -4,7 +4,8 @@
 #include <map>
 #include <algorithm>
 
-SearchServer::SearchServer(InvertedIndex& idx) : index(idx) {
+SearchServer::SearchServer(InvertedIndex& idx, int max_responses)
+    : index(idx), max_responses_limit(max_responses) {
 }
 
 std::vector<std::string> splitIntoWords(const std::string& text) {
@@ -70,7 +71,7 @@ std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<s
             RelativeIndex ri{};
             ri.doc_id = rel_it->first;
             if (max_absolute_relevance > 0) {
-                ri.rank = static_cast<float>(rel_it->second) / static_cast<float>(max_absolute_relevance);
+                ri.rank = (float)(rel_it->second) / (float)(max_absolute_relevance);
             } else {
                 ri.rank = 0.0f;
             }
@@ -85,8 +86,9 @@ std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<s
                 return a.doc_id < b.doc_id;
             });
 
-        if (rel_list.size() > 5) {
-            rel_list.resize(5);
+
+        if (rel_list.size() > max_responses_limit) {
+            rel_list.resize(max_responses_limit);
         }
         final_results.push_back(rel_list);
     }

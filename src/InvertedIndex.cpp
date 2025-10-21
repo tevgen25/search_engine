@@ -12,7 +12,7 @@ InvertedIndex::InvertedIndex() {
     this->freq_dictionary = std::map<std::string, std::vector<Entry>>();
 }
 
-void InvertedIndex::ProcessDocument(size_t doc_id, const std::string& content) {
+void InvertedIndex::ProcessDocument(const size_t doc_id, const std::string& content) {
     std::istringstream iss(content);
     std::string word;
     std::map<std::string, int> word_count;
