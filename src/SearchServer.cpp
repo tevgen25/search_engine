@@ -78,14 +78,14 @@ std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<s
             rel_list.push_back(ri);
         }
 
-        std::sort(rel_list.begin(), rel_list.end(),
+        size_t limit = (rel_list.size() < (size_t)max_responses_limit) ? rel_list.size() : (size_t)max_responses_limit;
+        std::partial_sort(rel_list.begin(), rel_list.begin() + limit, rel_list.end(),
             [](const RelativeIndex& a, const RelativeIndex& b) {
                 if (a.rank != b.rank) {
                     return a.rank > b.rank;
                 }
                 return a.doc_id < b.doc_id;
             });
-
 
         if (rel_list.size() > max_responses_limit) {
             rel_list.resize(max_responses_limit);
