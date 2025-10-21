@@ -31,28 +31,6 @@ int main() {
 
     SearchServer server(index, max_responses);
     std::vector<std::vector<RelativeIndex>> results = server.search(requests);
-
-/*    std::vector<std::vector<std::pair<int, float>>> answers_to_save;
-
-    std::vector<std::vector<RelativeIndex>>::iterator it;
-
-    for (it = results.begin(); it != results.end(); it++) {
-        std::vector<std::pair<int, float>> limited;
-        int count = 0;
-        std::vector<RelativeIndex>::iterator ri_it;
-        for (ri_it = it->begin(); ri_it != it->end(); ri_it++) {
-            if (count >= max_responses) {
-                break;
-            }
-            std::pair<int, float> p;
-            p.first = ri_it->doc_id;
-            p.second = ri_it->rank;
-            limited.push_back(p);
-            count++;
-        }
-        answers_to_save.push_back(limited);
-    }*/
-
     std::vector<std::vector<std::pair<int, float>>> answers_to_save;
 
     std::vector<std::vector<RelativeIndex>>::const_iterator it;
